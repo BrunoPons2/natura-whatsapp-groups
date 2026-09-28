@@ -182,28 +182,16 @@
     }
   }
 
-  function initials(name) {
-    const ignored = new Set(["natura", "group", "the"]);
-    const words = String(name)
-      .split(/\s+/)
-      .filter(Boolean)
-      .filter((word) => !ignored.has(normalise(word)));
-    return (words[0] || "N").slice(0, 1).toLocaleUpperCase("en-AU");
-  }
 
   function buildCard(group) {
     const card = template.content.firstElementChild.cloneNode(true);
     if (normalise(group.name) === "the telegraph") card.classList.add("telegraph-card");
-    const symbol = card.querySelector(".group-symbol");
-    const category = card.querySelector(".group-category");
     const name = card.querySelector(".group-name");
     const description = card.querySelector(".group-description");
 
 
     const joinButton = card.querySelector(".join-button");
 
-    symbol.textContent = initials(group.name);
-    category.textContent = group.category || "Village group";
     name.textContent = group.name || "Unnamed group";
     description.textContent = group.description || "Group information will be added soon.";
 
