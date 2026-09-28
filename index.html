@@ -85,6 +85,7 @@
         <p class="group-description"></p>
       </div>
       <button class="administrators-button" type="button" aria-haspopup="dialog">Administrators</button>
+      <button class="membership-button" type="button" aria-haspopup="dialog">Already a member?</button>
 
       <a class="join-button" target="_blank" rel="noopener noreferrer">
         <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path d="M12 2a9.6 9.6 0 0 0-8.27 14.48L2.2 22l5.65-1.48A9.67 9.67 0 1 0 12 2Zm0 17.34a7.6 7.6 0 0 1-3.88-1.06l-.28-.16-3.35.88.9-3.26-.18-.3A7.67 7.67 0 1 1 12 19.34Zm4.2-5.75c-.23-.12-1.36-.67-1.57-.75-.21-.07-.36-.11-.52.12-.15.23-.59.75-.73.9-.13.16-.27.18-.5.06-1.34-.67-2.22-1.2-3.11-2.72-.24-.41.24-.38.67-1.27.08-.16.04-.3-.02-.42-.06-.11-.52-1.23-.71-1.69-.18-.45-.37-.39-.52-.4h-.44c-.16 0-.41.06-.63.29-.21.23-.82.8-.82 1.96s.84 2.28.96 2.44c.12.15 1.66 2.53 4.02 3.55.56.24 1 .39 1.34.5.56.18 1.08.15 1.48.09.46-.07 1.36-.56 1.55-1.1.19-.55.19-1.02.13-1.11-.05-.1-.2-.16-.43-.27Z"/></svg>
@@ -97,6 +98,19 @@
       </div>
     </article>
   </template>
+
+  <dialog id="membershipDialog" aria-labelledby="membershipTitle" aria-describedby="membershipGroup">
+    <div class="dialog-heading"><h2 id="membershipTitle">Already a member?</h2><button id="closeMembership" type="button" autofocus>Close</button></div>
+    <p id="membershipGroup"></p>
+    <p>This app cannot check your WhatsApp membership. Choose the answer that applies to you.</p>
+    <div class="membership-choices" role="group" aria-label="Your membership answer">
+      <button type="button" data-membership="yes" aria-pressed="false">Yes</button>
+      <button type="button" data-membership="no" aria-pressed="false">No</button>
+      <button type="button" data-membership="unsure" aria-pressed="false">Not sure</button>
+    </div>
+    <div id="membershipGuidance" aria-live="polite"></div>
+    <button id="membershipHelp" type="button">Ask an administrator for help</button>
+  </dialog>
 
   <dialog id="administratorsDialog" aria-labelledby="administratorsTitle" aria-describedby="administratorsGroup">
     <div class="dialog-heading">

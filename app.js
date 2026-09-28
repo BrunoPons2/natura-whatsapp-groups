@@ -35,6 +35,66 @@
     }
     administratorsDialog.showModal();
   }
+  const membershipDialog = document.getElementById("membershipDialog");
+  const membershipGuidance = document.getElementById("membershipGuidance");
+  let membershipGroup;
+  document.getElementById("closeMembership").addEventListener("click", () => membershipDialog.close());
+  function openMembership(group) {
+    membershipGroup = group;
+    document.getElementById("membershipGroup").textContent = group.name;
+    membershipGuidance.replaceChildren();
+    membershipDialog.querySelectorAll("[data-membership]").forEach(button => button.setAttribute("aria-pressed", "false"));
+    membershipDialog.showModal();
+  }
+  function membershipText(text) {
+    const paragraph = document.createElement("p");
+    paragraph.textContent = text;
+    membershipGuidance.appendChild(paragraph);
+  }
+  function membershipAction(label, action) {
+    const button = document.createElement("button");
+    button.type = "button";
+    button.textContent = label;
+    button.addEventListener("click", action);
+    membershipGuidance.appendChild(button);
+  }
+  membershipDialog.querySelectorAll("[data-membership]").forEach(button => {
+    button.addEventListener("click", () => {
+      membershipDialog.querySelectorAll("[data-membership]").forEach(choice => choice.setAttribute("aria-pressed", String(choice === button)));
+      membershipGuidance.replaceChildren();
+      if (button.dataset.membership === "yes") {
+        membershipText("If you are already a member, no action is needed to stay in the group.");
+        membershipAction("Keep membership", () => membershipDialog.close());
+        membershipAction("How to leave this group", () => {
+          membershipGuidance.replaceChildren();
+          membershipText("To leave, open WhatsApp, find " + membershipGroup.name + ", open the chat and tap or click the group name. Choose Exit group and confirm in WhatsApp.");
+          membershipText("You remain a member until you complete those steps in WhatsApp. Closing this dialog does not change your membership.");
+        });
+      } else if (button.dataset.membership === "no") {
+        if (membershipGroup.template === "B" && isWhatsAppInvite(membershipGroup.inviteUrl)) {
+          membershipText("Open the invitation in WhatsApp to join or request to join. Any administrator approval is handled in WhatsApp.");
+          const link = document.createElement("a");
+          link.className = "membership-join";
+          link.textContent = "Open invitation in WhatsApp";
+          link.href = membershipGroup.inviteUrl;
+          link.target = "_blank";
+          link.rel = "noopener noreferrer";
+          membershipGuidance.appendChild(link);
+          membershipAction("Invitation via link", () => { membershipDialog.close(); openInvitation(membershipGroup, "link"); });
+          membershipAction("Invitation via email", () => { membershipDialog.close(); openInvitation(membershipGroup, "email"); });
+        } else {
+          membershipText("Contact an administrator to ask to join this group. No invitation link is available in this directory.");
+        }
+      } else {
+        membershipText("Open WhatsApp and search for " + membershipGroup.name + ". Check archived chats too. Open the group information to check whether your WhatsApp account is in the current member list.");
+        membershipText("An old chat can remain after you leave, so finding the chat alone does not confirm membership. If you are uncertain, ask an administrator to check your WhatsApp number.");
+      }
+    });
+  });
+  document.getElementById("membershipHelp").addEventListener("click", () => {
+    membershipDialog.close();
+    openAdministrators(membershipGroup);
+  });
   const inviteDialog = document.getElementById("inviteDialog");
   const emailInput = document.getElementById("inviteEmails");
   const gmailButton = document.getElementById("inviteGmail");
@@ -197,6 +257,8 @@
     description.hidden = !group.description;
 
     card.querySelector(".administrators-button").addEventListener("click", () => openAdministrators(group));
+
+    card.querySelector(".membership-button").addEventListener("click", () => openMembership(group));
 
     if (group.template === "A") {
       joinButton.remove();
