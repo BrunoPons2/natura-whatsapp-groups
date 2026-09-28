@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#075e54">
+  <meta name="description" content="Find and join approved WhatsApp groups for Natura Lifestyle Village.">
+  <title>Natura WhatsApp Groups</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-title" content="Natura Groups">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <link rel="apple-touch-icon" href="icons/app-icon-192.png">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand-row">
+        <div class="brand-mark" aria-hidden="true">N</div>
+        <div>
+          <h1>Natura WhatsApp Groups</h1>
+          <p>Find a group and join the conversation.</p>
+        </div>
+      </div>
+
+      <div class="search-box">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="24" height="24"><path d="m21 21-4.35-4.35m2.35-5.65a8 8 0 1 1-16 0 8 8 0 0 1 16 0Z"/></svg>
+        <label class="visually-hidden" for="groupSearch">Search groups</label>
+        <input id="groupSearch" type="search" placeholder="Search groups…" autocomplete="off">
+        <button id="clearSearchBox" type="button" aria-label="Clear search" title="Clear search">&#215;</button>
+      </div>
+    </div>
+  </header>
+
+  <main id="mainContent" class="page-shell">
+    <div class="directory-heading">
+      <div>
+        <h2>Village groups</h2>
+        <p id="resultCount" role="status" aria-live="polite">Loading groups…</p>
+      </div>
+      <button id="installButton" class="install-button" type="button">Add to Home Screen</button>
+    </div>
+
+    <p id="connectionStatus" role="status" hidden>You are offline. Saved groups are available; joining groups and sending messages require a connection.</p>
+    <p id="testNotice" class="test-notice" hidden>Contact preview — these are test administrators, not confirmed group appointments.</p>
+    <section id="groupList" class="group-grid" aria-label="Natura WhatsApp groups"></section>
+
+    <section id="emptyState" class="empty-state" hidden>
+      <div class="empty-icon" aria-hidden="true">?</div>
+      <h2>No groups found</h2>
+      <p>Try a different group name or activity.</p>
+      <button id="clearSearch" type="button">Clear search</button>
+    </section>
+
+    <aside class="help-panel" aria-label="Directory help">
+      <div class="help-icon" aria-hidden="true">i</div>
+      <div>
+        <h2>About this directory</h2>
+        <p>Find Natura groups and their administrators. Invitation arrangements are shown when confirmed.</p>
+      </div>
+    </aside>
+  </main>
+
+  <dialog id="installDialog" aria-labelledby="installTitle">
+    <div class="dialog-heading"><h2 id="installTitle">Add to Home Screen</h2><button id="closeInstall" type="button">Close</button></div>
+    <p><strong>iPhone:</strong> Open this app in Safari. Tap Share, then Add to Home Screen, and tap Add.</p>
+    <p><strong>Android:</strong> Open this app in Chrome. Use the browser menu and choose Install app or Add to Home screen.</p>
+    <p>Once installed, open Natura Groups from its home-screen icon.</p>
+  </dialog>
+  <footer>
+    <p>Natura Lifestyle Village · Group information is maintained by residents.</p>
+  </footer>
+
+  <template id="groupCardTemplate">
+    <article class="group-card">
+      <div class="card-topline">
+        <div class="group-symbol" aria-hidden="true"></div>
+        <span class="group-category"></span>
+      </div>
+      <div class="card-copy">
+        <h3 class="group-name"></h3>
+        <p class="group-description"></p>
+      </div>
+      <button class="administrators-button" type="button" aria-haspopup="dialog">Administrators</button>
+
+      <a class="join-button" target="_blank" rel="noopener noreferrer">
+        <svg aria-hidden="true" viewBox="0 0 24 24" width="22" height="22"><path d="M12 2a9.6 9.6 0 0 0-8.27 14.48L2.2 22l5.65-1.48A9.67 9.67 0 1 0 12 2Zm0 17.34a7.6 7.6 0 0 1-3.88-1.06l-.28-.16-3.35.88.9-3.26-.18-.3A7.67 7.67 0 1 1 12 19.34Zm4.2-5.75c-.23-.12-1.36-.67-1.57-.75-.21-.07-.36-.11-.52.12-.15.23-.59.75-.73.9-.13.16-.27.18-.5.06-1.34-.67-2.22-1.2-3.11-2.72-.24-.41.24-.38.67-1.27.08-.16.04-.3-.02-.42-.06-.11-.52-1.23-.71-1.69-.18-.45-.37-.39-.52-.4h-.44c-.16 0-.41.06-.63.29-.21.23-.82.8-.82 1.96s.84 2.28.96 2.44c.12.15 1.66 2.53 4.02 3.55.56.24 1 .39 1.34.5.56.18 1.08.15 1.48.09.46-.07 1.36-.56 1.55-1.1.19-.55.19-1.02.13-1.11-.05-.1-.2-.16-.43-.27Z"/></svg>
+        <span>Join WhatsApp Group</span>
+      </a>
+
+      <div class="invite-actions" hidden>
+        <button class="invite-link-button" type="button">Invitation to group via link</button>
+        <button class="invite-email-button" type="button">Invitation to group via email</button>
+      </div>
+    </article>
+  </template>
+
+  <dialog id="administratorsDialog" aria-labelledby="administratorsTitle" aria-describedby="administratorsGroup">
+    <div class="dialog-heading">
+      <h2 id="administratorsTitle">Administrators</h2>
+      <button id="closeAdministrators" type="button" autofocus>Close</button>
+    </div>
+    <p id="administratorsGroup"></p>
+    <div id="administratorsContent" aria-live="polite"></div>
+  </dialog>
+  <dialog id="inviteDialog" aria-labelledby="inviteTitle">
+    <div class="dialog-heading">
+      <h2 id="inviteTitle">Invitation to group via email</h2>
+      <button id="closeInvite" type="button" aria-label="Close invitation" autofocus>×</button>
+    </div>
+    <div id="emailInviteFields">
+      <p>They’ll get an email with a link to join <strong id="inviteGroupName"></strong>.</p>
+      <label class="visually-hidden" for="inviteEmails">Email addresses</label>
+      <input id="inviteEmails" type="text" inputmode="email" autocomplete="off" placeholder="Enter email address" aria-describedby="emailHint emailError">
+      <p id="emailHint">Add one or more emails, separated by commas or semicolons.</p>
+      <p id="emailError" role="status"></p>
+      <button id="inviteGmail" class="email-action" type="button" disabled>Send via Gmail</button>
+      <button id="inviteEmailApp" class="email-action secondary" type="button" disabled>Open email app</button>
+      <p class="draft-note">Opens an email draft for you to review and send.</p>
+      <p class="invite-divider">or copy group link</p>
+    </div>
+    <div class="invite-link-card">
+      <div class="invite-symbol" aria-hidden="true">↗</div>
+      <div class="invite-link-copy">
+        <strong id="inviteLinkName"></strong>
+        <label class="visually-hidden" for="inviteLinkValue">Group invitation link</label>
+        <input id="inviteLinkValue" readonly>
+      </div>
+      <button id="copyInviteLink" type="button" aria-label="Copy group invitation link">Copy</button>
+    </div>
+    <p id="copyInviteStatus" role="status"></p>
+  </dialog>
+
+  <noscript>
+    <p class="noscript">Please enable JavaScript to view the group directory.</p>
+  </noscript>
+
+  <script src="data/groups.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
+
+
+
+

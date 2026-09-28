@@ -1,0 +1,88 @@
+{
+  "residents": [
+    {
+      "residentId": "39",
+      "name": "Greg Blackmore",
+      "address": "20 Jubilee St",
+      "phone": "0459177080",
+      "email": "gregblackmore49@gmail.com"
+    },
+    {
+      "residentId": "53",
+      "name": "Joy Jeffrey",
+      "address": "27 Heirloom Drv",
+      "phone": "0421313919",
+      "email": "joyjeffrey13@gmail.com"
+    },
+    {
+      "residentId": "67",
+      "name": "Gordon Roberts",
+      "address": "34 Heirloom Drv",
+      "phone": "0418222135",
+      "email": "gorwill@ozemail.com.au"
+    },
+    {
+      "residentId": "68",
+      "name": "Judy Roberts",
+      "address": "34 Heirloom Drv",
+      "phone": "0414477007",
+      "email": "judy12@ozemail.com.au"
+    },
+    {
+      "residentId": "69",
+      "name": "Bruno Pons",
+      "address": "35 Autumn Ave",
+      "phone": "0422906105",
+      "email": "bpons@tpg.com.au"
+    },
+    {
+      "residentId": "81",
+      "name": "Phil Johns",
+      "address": "40 Autumn Ave",
+      "phone": "0408269484",
+      "email": "airnautic@mail.com"
+    },
+    {
+      "residentId": "86",
+      "name": "Kay Ryan",
+      "address": "42 Autumn Ave",
+      "phone": "0419645587",
+      "email": ""
+    },
+    {
+      "residentId": "115",
+      "name": "George Smith",
+      "address": "56 Autumn Ave",
+      "phone": "0434629967",
+      "email": "gtsmith@live.com.au"
+    },
+    {
+      "residentId": "116",
+      "name": "Janine Smith",
+      "address": "56 Autumn Ave",
+      "phone": "0402245817",
+      "email": "janinelynnsmith@hotmail.com"
+    },
+    {
+      "residentId": "124",
+      "name": "Suzette Thornburrow",
+      "address": "60 Bloom St",
+      "phone": "0436396399",
+      "email": "athorn1510@gmail.com"
+    },
+    {
+      "residentId": "176",
+      "name": "Glenn Blain",
+      "address": "86 Melody St",
+      "phone": "0419213116",
+      "email": "gblain1962@hotmail.com"
+    },
+    {
+      "residentId": "221",
+      "name": "Francoise Kingsley",
+      "address": "109 Lakeview Drv",
+      "phone": "0431771939",
+      "email": "fkingsley50@gmail.com"
+    }
+  ]
+}
