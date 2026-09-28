@@ -193,7 +193,8 @@
     const joinButton = card.querySelector(".join-button");
 
     name.textContent = group.name || "Unnamed group";
-    description.textContent = group.description || "Group information will be added soon.";
+    description.textContent = group.description || "";
+    description.hidden = !group.description;
 
     card.querySelector(".administrators-button").addEventListener("click", () => openAdministrators(group));
 
@@ -210,6 +211,19 @@
       card.querySelector(".invite-email-button").addEventListener("click", () => openInvitation(group, "email"));
       joinButton.href = group.inviteUrl;
       joinButton.setAttribute("aria-label", `Join ${group.name} on WhatsApp`);
+    } else if (group.template === "B") {
+      const actions = card.querySelector(".invite-actions");
+      actions.hidden = false;
+      actions.querySelectorAll("button").forEach(button => { button.disabled = true; });
+      joinButton.removeAttribute("href");
+      joinButton.setAttribute("role", "link");
+      joinButton.setAttribute("aria-disabled", "true");
+      joinButton.classList.add("is-unavailable");
+      joinButton.title = "Invitation link not yet available";
+      const pendingNote = document.createElement("p");
+      pendingNote.className = "approval-note";
+      pendingNote.textContent = "Invitation link not yet available. Contact the administrator for access.";
+      actions.after(pendingNote);
     } else {
       joinButton.hidden = true;
       const pendingNote = document.createElement("p");
@@ -300,6 +314,37 @@
   window.addEventListener("online", updateConnection);
   window.addEventListener("offline", updateConnection);
   updateConnection();
+  const cardNavigation = document.getElementById("cardNavigation");
+  const topNavigation = document.getElementById("backToTop");
+  function positionCardNavigation() {
+    const cards = [...document.querySelectorAll(".group-card")];
+    const visible = cards.map(card => ({ card, rect: card.getBoundingClientRect() }))
+      .filter(item => item.rect.bottom > 0 && item.rect.top < window.innerHeight);
+    // Follow the first card still visible at the top of the viewport.
+    const selected = visible[0];
+    cardNavigation.hidden = !selected;
+    if (!selected) return;
+    const rect = selected.rect;
+    const left = Math.max(4, Math.min(rect.right + 8, window.innerWidth - cardNavigation.offsetWidth - 8));
+    cardNavigation.style.left = left + "px";
+    cardNavigation.style.top = Math.max(8, rect.top + 8) + "px";
+    const bottomRect = visible[visible.length - 1].rect;
+    topNavigation.style.left = Math.max(4, Math.min(bottomRect.right + 8, window.innerWidth - topNavigation.offsetWidth - 8)) + "px";
+    topNavigation.style.top = Math.min(window.innerHeight - topNavigation.offsetHeight - 8, bottomRect.bottom - topNavigation.offsetHeight - 8) + "px";
+  }
+  window.addEventListener("scroll", positionCardNavigation, { passive: true });
+  window.addEventListener("resize", positionCardNavigation);
+  new MutationObserver(positionCardNavigation).observe(groupList, { childList: true });
+  requestAnimationFrame(positionCardNavigation);
+  document.getElementById("pageDown").addEventListener("click", () => {
+    window.scrollBy({ top: window.innerHeight, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+  });
+  document.getElementById("pageUp").addEventListener("click", () => {
+    window.scrollBy({ top: -window.innerHeight, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+  });
+  document.getElementById("backToTop").addEventListener("click", () => {
+    document.getElementById("mainContent").scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" });
+  });
   render();
 })();
 
