@@ -378,6 +378,7 @@
   updateConnection();
   const cardNavigation = document.getElementById("cardNavigation");
   const topNavigation = document.getElementById("backToTop");
+  const bottomNavigation = document.getElementById("goToBottom");
   function positionCardNavigation() {
     const cards = [...document.querySelectorAll(".group-card")];
     const visible = cards.map(card => ({ card, rect: card.getBoundingClientRect() }))
@@ -391,8 +392,13 @@
     cardNavigation.style.left = left + "px";
     cardNavigation.style.top = Math.max(8, rect.top + 8) + "px";
     const bottomRect = visible[visible.length - 1].rect;
-    topNavigation.style.left = Math.max(4, Math.min(bottomRect.right + 8, window.innerWidth - topNavigation.offsetWidth - 8)) + "px";
-    topNavigation.style.top = Math.min(window.innerHeight - topNavigation.offsetHeight - 8, bottomRect.bottom - topNavigation.offsetHeight - 8) + "px";
+    const bottomWidth = Math.max(topNavigation.offsetWidth, bottomNavigation.offsetWidth);
+    const bottomLeft = Math.max(4, Math.min(bottomRect.right + 8, window.innerWidth - bottomWidth - 8));
+    const pairHeight = topNavigation.offsetHeight + 6 + bottomNavigation.offsetHeight;
+    const pairTop = Math.max(8, Math.min(window.innerHeight - pairHeight - 8, bottomRect.bottom - pairHeight - 8));
+    topNavigation.style.left = bottomNavigation.style.left = bottomLeft + "px";
+    topNavigation.style.top = pairTop + "px";
+    bottomNavigation.style.top = (pairTop + topNavigation.offsetHeight + 6) + "px";
   }
   window.addEventListener("scroll", positionCardNavigation, { passive: true });
   window.addEventListener("resize", positionCardNavigation);
@@ -403,6 +409,10 @@
   });
   document.getElementById("pageUp").addEventListener("click", () => {
     window.scrollBy({ top: -window.innerHeight, behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth" });
+  });
+  bottomNavigation.addEventListener("click", () => {
+    const lastCard = groupList.lastElementChild;
+    if (lastCard) lastCard.scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "end" });
   });
   document.getElementById("backToTop").addEventListener("click", () => {
     document.getElementById("mainContent").scrollIntoView({ behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "instant" : "smooth", block: "start" });

@@ -489,3 +489,5 @@ footer { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
 #membershipGuidance { margin: 16px 0; }
 #membershipGuidance button, .membership-join { display: block; margin-top: 8px; width: 100%; text-align: center; text-decoration: none; }
 #membershipDialog .dialog-heading { flex-wrap: wrap; }
+
+#cardNavigation #goToBottom { position: fixed; right: auto; bottom: auto; }
