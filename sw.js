@@ -1,6 +1,6 @@
 const CACHE_PREFIX = "natura-whatsapp-groups-";
-const CACHE_NAME = CACHE_PREFIX + "mobile-v5";
-const APP_FILES = ["./", "./index.html", "./styles.css", "./app.js", "./data/groups.js", "./data/administrator-contacts.json", "./manifest.webmanifest", "./icons/favicon.svg", "./icons/app-icon-192.png", "./icons/app-icon-512.png"];
+const CACHE_NAME = CACHE_PREFIX + "mobile-v6";
+const APP_FILES = ["./", "./index.html", "./styles.css?v=6", "./app.js?v=6", "./data/groups.js?v=6", "./data/administrator-contacts.json", "./manifest.webmanifest", "./icons/favicon.svg", "./icons/app-icon-192.png", "./icons/app-icon-512.png"];
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_FILES)));
   self.skipWaiting();
@@ -14,7 +14,7 @@ self.addEventListener("fetch", event => {
   event.respondWith((async () => {
     const cache = await caches.open(CACHE_NAME);
     try {
-      const response = await fetch(event.request);
+      const response = await fetch(event.request, { cache: "no-cache" });
       if (response.ok) await cache.put(event.request, response.clone());
       return response;
     } catch {
