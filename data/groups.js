@@ -58,6 +58,10 @@ window.NATURA_GROUPS = [
       {
         "residentId": "69",
         "name": "Bruno Pons"
+      },
+      {
+        "residentId": "221",
+        "name": "Françoise Kingsley"
       }
     ],
     "inviteUrl": "https://chat.whatsapp.com/ELpvN8Ryn7hAaUqp30mwSB",
@@ -72,6 +76,10 @@ window.NATURA_GROUPS = [
       {
         "residentId": "69",
         "name": "Bruno Pons"
+      },
+      {
+        "residentId": "123",
+        "name": "Andy Thornburrow"
       }
     ],
     "inviteUrl": "https://chat.whatsapp.com/EhmAiev1djnGL3Ps9cbddy",
@@ -136,10 +144,14 @@ window.NATURA_GROUPS = [
       {
         "residentId": "221",
         "name": "Francoise Kingsley"
+      },
+      {
+        "residentId": "69",
+        "name": "Bruno Pons"
       }
     ],
-    "inviteUrl": "",
-    "template": "A",
+    "inviteUrl": "https://chat.whatsapp.com/GeF307YWG7rBP9f7gvkAEq",
+    "template": "B",
     "registerNote": ""
   },
   {

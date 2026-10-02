@@ -90,6 +90,13 @@
       "address": "52 Autumn Ave",
       "phone": "0407315850",
       "email": "stuart.salvage@bigpond.com"
+    },
+    {
+      "residentId": "123",
+      "name": "Andy Thornburrow",
+      "address": "60 Bloom St",
+      "phone": "0457193379",
+      "email": "athorn1510@gmail.com"
     }
   ]
 }
