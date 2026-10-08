@@ -1,6 +1,6 @@
 // Master group register: edit group information here.
 // template: A = contact administrator; B = invitation available; unconfirmed = awaiting confirmation.
-// Based on Natura WhatsApp Groups List 2026-09-27, with subsequent user-requested removals and renaming: 15 groups.
+// Based on Natura WhatsApp Groups List 2026-09-27, with subsequent user-requested removals and renaming: 16 groups.
 window.NATURA_GROUPS = [
   {
     "name": "The Telegraph",
@@ -271,8 +271,23 @@ window.NATURA_GROUPS = [
     "inviteUrl": "https://chat.whatsapp.com/JwrAUU17lG01BcqomX6E8u",
     "template": "B",
     "registerNote": ""
+  },
+  {
+    "name": "Natura French Group",
+    "description": "",
+    "category": "Village group",
+    "administrators": [
+      {
+        "residentId": "69",
+        "name": "Bruno Pons"
+      },
+      {
+        "residentId": "82",
+        "name": "Pat Johns"
+      }
+    ],
+    "inviteUrl": "https://chat.whatsapp.com/IxepcxR0d8W1Os1NRWFPbC",
+    "template": "B",
+    "registerNote": ""
   }
 ];
-
-
-
