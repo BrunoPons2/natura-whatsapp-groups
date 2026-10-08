@@ -304,7 +304,7 @@ window.NATURA_GROUPS = [
         "name": "Janine Smith"
       }
     ],
-    "inviteUrl": "",
+    "inviteUrl": "https://chat.whatsapp.com/BDXCOdHSzqFIxxjXZXCyUG",
     "template": "B",
     "registerNote": ""
   },
