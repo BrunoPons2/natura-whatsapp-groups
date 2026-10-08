@@ -205,7 +205,7 @@ window.NATURA_GROUPS = [
     "registerNote": ""
   },
   {
-    "name": "Natura Pilates",
+    "name": "Natura Pilates Group",
     "description": "Pilates Exercises",
     "category": "Sport & recreation",
     "administrators": [
