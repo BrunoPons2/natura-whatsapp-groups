@@ -123,7 +123,7 @@ window.NATURA_GROUPS = [
     "registerNote": ""
   },
   {
-    "name": "Natura Canasta Players",
+    "name": "Natura Canasta Players Group",
     "description": "A group where community members can talk about anything with each other",
     "category": "Village group",
     "administrators": [
