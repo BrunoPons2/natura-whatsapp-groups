@@ -87,7 +87,7 @@ window.NATURA_GROUPS = [
     "registerNote": ""
   },
   {
-    "name": "Natura Lawn Bowls Tuesday",
+    "name": "Natura Lawn Bowls Tuesday Group",
     "description": "Lawn Bowls Group on Tuesday morning",
     "category": "Sport & recreation",
     "administrators": [
