@@ -105,7 +105,7 @@ window.NATURA_GROUPS = [
     "registerNote": ""
   },
   {
-    "name": "Natura Bridge Card Players",
+    "name": "Natura Bridge Card Players Group",
     "description": "Bridge Card Players",
     "category": "Sport & recreation",
     "administrators": [
