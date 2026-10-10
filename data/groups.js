@@ -327,7 +327,7 @@ window.NATURA_GROUPS = [
     "registerNote": ""
   },
   {
-    "name": "Natura Bush Walking Group",
+    "name": "Natura Walking Group",
     "description": "",
     "category": "Sport & recreation",
     "administrators": [
