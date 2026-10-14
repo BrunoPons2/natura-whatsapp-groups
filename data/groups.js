@@ -1,6 +1,6 @@
 // Master group register: edit group information here.
 // template: A = contact administrator; B = invitation available; unconfirmed = awaiting confirmation.
-// Based on Natura WhatsApp Groups List 2026-09-27, with subsequent user-requested removals and renaming: 17 groups.
+// Based on Natura WhatsApp Groups List 2026-09-27, with subsequent user-requested removals and renaming: 18 groups.
 window.NATURA_GROUPS = [
   {
     "name": "The Telegraph",
@@ -305,6 +305,15 @@ window.NATURA_GROUPS = [
       }
     ],
     "inviteUrl": "https://chat.whatsapp.com/Jr7BJhLWSXjLUhLx9LOhx0",
+    "template": "B",
+    "registerNote": ""
+  },
+  {
+    "name": "Natura Qi Gong Group",
+    "description": "Learning the Arts of Qi Gong.",
+    "category": "Village group",
+    "administrators": [],
+    "inviteUrl": "https://chat.whatsapp.com/J8jUt2K9eny4QaYi7PMi44",
     "template": "B",
     "registerNote": ""
   }
