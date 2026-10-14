@@ -312,7 +312,16 @@ window.NATURA_GROUPS = [
     "name": "Natura Qi Gong Group",
     "description": "Learning the Arts of Qi Gong.",
     "category": "Village group",
-    "administrators": [],
+    "administrators": [
+      {
+        "residentId": "221",
+        "name": "Françoise Kingsley"
+      },
+      {
+        "residentId": "69",
+        "name": "Bruno Pons"
+      }
+    ],
     "inviteUrl": "https://chat.whatsapp.com/J8jUt2K9eny4QaYi7PMi44",
     "template": "B",
     "registerNote": ""
