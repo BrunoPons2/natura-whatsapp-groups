@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" href="icons/app-icon-192.png">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=22">
+  <link rel="stylesheet" href="styles.css?v=26">
 </head>
 <body>
   <header class="site-header">
@@ -100,17 +100,15 @@
     </article>
   </template>
 
-  <dialog id="membershipDialog" aria-labelledby="membershipTitle" aria-describedby="membershipGroup">
-    <div class="dialog-heading"><h2 id="membershipTitle">Already a member?</h2><button id="closeMembership" type="button" autofocus>Close</button></div>
-    <p id="membershipGroup"></p>
-    <p>This app cannot check your WhatsApp membership. Choose the answer that applies to you.</p>
-    <div class="membership-choices" role="group" aria-label="Your membership answer">
-      <button type="button" data-membership="yes" aria-pressed="false">Yes</button>
-      <button type="button" data-membership="no" aria-pressed="false">No</button>
-      <button type="button" data-membership="unsure" aria-pressed="false">Not sure</button>
+  <dialog id="membershipDialog" aria-labelledby="membershipTitle">
+    <div class="dialog-heading"><h2 id="membershipTitle">Check in WhatsApp</h2></div>
+    <p>Open WhatsApp and search for <strong id="membershipGroup"></strong>.</p>
+    <p>Open the chat and check whether you can send a message. If you can, you’re a member.</p>
+    <p>Can’t send a message or still unsure? Contact a group administrator.</p>
+    <div class="membership-actions">
+      <button id="membershipHelp" type="button">Administrators</button>
+      <button id="closeMembership" type="button" autofocus>Close</button>
     </div>
-    <div id="membershipGuidance" aria-live="polite"></div>
-    <button id="membershipHelp" type="button">Ask an administrator for help</button>
   </dialog>
 
   <dialog id="administratorsDialog" aria-labelledby="administratorsTitle" aria-describedby="administratorsGroup">
@@ -154,7 +152,7 @@
   </noscript>
 
   <script src="data/groups.js?v=22"></script>
-  <script src="app.js?v=22"></script>
+  <script src="app.js?v=26"></script>
 </body>
 </html>
 
