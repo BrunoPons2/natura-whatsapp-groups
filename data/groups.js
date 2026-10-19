@@ -155,7 +155,7 @@ window.NATURA_GROUPS = [
     "registerNote": ""
   },
   {
-    "name": "Natura Electricity ARPRA Group",
+    "name": "Natura ARPRA Group",
     "description": "All matters relating to saving costs of electricity and others.",
     "category": "Village group",
     "administrators": [
