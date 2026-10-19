@@ -170,6 +170,14 @@ window.NATURA_GROUPS = [
       {
         "residentId": "105",
         "name": "Stuart Salvage"
+      },
+      {
+        "residentId": "65",
+        "name": "Hans Gotfredsen"
+      },
+      {
+        "residentId": "136",
+        "name": "Joanne Gill"
       }
     ],
     "inviteUrl": "https://chat.whatsapp.com/DFjUwMlSwXMH2pdwpfCqe7",

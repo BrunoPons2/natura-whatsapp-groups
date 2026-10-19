@@ -111,6 +111,20 @@
       "address": "40 Autumn Ave",
       "phone": "0459859585",
       "email": "pajojo48@gmail.com"
+    },
+    {
+      "residentId": "65",
+      "name": "Hans Gotfredsen",
+      "address": "33 Heirloom Drv",
+      "phone": "0450357105",
+      "email": "hgotfredsen@hotmail.com"
+    },
+    {
+      "residentId": "136",
+      "name": "Joanne Gill",
+      "address": "66 Bloom St",
+      "phone": "0407962710",
+      "email": "joanneltgill@gmail.com"
     }
   ]
 }
