@@ -156,7 +156,7 @@ window.NATURA_GROUPS = [
   },
   {
     "name": "Natura ARPRA Group",
-    "description": "All matters relating to saving costs of electricity and others.",
+    "description": "Group formed to examine all issues, individual or groups,  affecting our community such as Solar Power, Electricity rates, charges and supply, etc.",
     "category": "Village group",
     "administrators": [
       {
