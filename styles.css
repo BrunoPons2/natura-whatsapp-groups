@@ -488,3 +488,16 @@ footer { padding-bottom: calc(100px + env(safe-area-inset-bottom)); }
 #cardNavigation #goToBottom { position: fixed; right: auto; bottom: auto; }
 
 .membership-actions { display: flex; flex-wrap: wrap; gap: 8px; }
+
+/* Bruno's contact card mirrors the Residents Directory profile. */
+#brunoDialog { position:fixed; margin:auto; padding:10px; width:300px; max-width:92vw; max-height:92dvh; overflow:auto; border:0; border-radius:18px; background:white; color:#111; }
+#brunoDialog::backdrop, #brunoMapDialog::backdrop { background:rgba(0,0,0,.45); }
+.bruno-close { position:absolute; right:10px; top:10px; min-width:44px; min-height:44px; border:0; border-radius:12px; background:#f2f2f2; font-size:24px; cursor:pointer; }
+.bruno-photo { display:block; width:100%; max-height:55vh; object-fit:contain; border-radius:16px; background:#f6f6f6; }
+#brunoTitle { font-size:1rem; line-height:1.3; margin:8px 0 0; }
+#brunoDetails { font-size:.92rem; line-height:1.3; margin:6px 0 0; overflow-wrap:anywhere; }
+.bruno-actions { display:flex; gap:6px; margin-top:12px; flex-wrap:wrap; }
+.bruno-actions a, .bruno-actions button, #closeBrunoMap { flex:1; display:inline-flex; justify-content:center; align-items:center; min-height:44px; padding:9px 5px; border-radius:14px; border:1px solid #ddd; color:#111; background:white; font:inherit; font-weight:650; text-decoration:none; cursor:pointer; }
+#brunoMapDialog { margin:auto; width:min(900px,96vw); max-width:96vw; max-height:94dvh; overflow:auto; padding:16px; border:0; border-radius:18px; }
+#brunoMapSvg { display:block; width:100%; height:65vh; margin-top:12px; background:#e5eddc; }
+#closeBrunoMap { flex:none; padding:9px; }

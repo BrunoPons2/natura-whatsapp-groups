@@ -1,6 +1,24 @@
 (function () {
   "use strict";
 
+  const brunoDialog = document.getElementById("brunoDialog");
+  const brunoMapDialog = document.getElementById("brunoMapDialog");
+  const brunoMapSvg = document.getElementById("brunoMapSvg");
+  const showBrunoHome = () => brunoMapSvg.setAttribute("viewBox", "1119.25 1040.5 420 420");
+  document.getElementById("contactBruno").addEventListener("click", () => brunoDialog.showModal());
+  document.getElementById("closeBruno").addEventListener("click", () => brunoDialog.close());
+  document.getElementById("brunoMap").addEventListener("click", () => { showBrunoHome(); brunoMapDialog.showModal(); });
+  document.getElementById("closeBrunoMap").addEventListener("click", () => brunoMapDialog.close());
+  document.getElementById("brunoMapHome").addEventListener("click", showBrunoHome);
+  document.getElementById("brunoMapAll").addEventListener("click", () => brunoMapSvg.setAttribute("viewBox", "0 0 1600 1600"));
+  [brunoDialog, brunoMapDialog].forEach(dialog => {
+    dialog.addEventListener("click", event => {
+      if (event.target !== dialog) return;
+      const rect = dialog.getBoundingClientRect();
+      if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
+    });
+  });
+
   const groups = Array.isArray(window.NATURA_GROUPS) ? window.NATURA_GROUPS : [];
   const searchInput = document.getElementById("groupSearch");
   const groupList = document.getElementById("groupList");

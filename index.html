@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" href="icons/app-icon-192.png">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=26">
+  <link rel="stylesheet" href="styles.css?v=36">
 </head>
 <body>
   <header class="site-header">
@@ -59,7 +59,7 @@
       <div>
         <h2>About this directory</h2>
         <p style="text-align: left;">Find Natura groups and their administrators. If a group is missing or you would like one created -</p>
-        <div style="text-align: center;"><a class="contact-action" href="sms:0422906105">Text Bruno</a></div>
+        <div style="text-align: center;"><button id="contactBruno" class="contact-action" type="button" aria-haspopup="dialog">Contact Bruno</button></div>
       </div>
     </aside>
   </main>
@@ -148,12 +148,35 @@
     <p id="copyInviteStatus" role="status"></p>
   </dialog>
 
+
+  <dialog id="brunoDialog" aria-labelledby="brunoTitle" aria-describedby="brunoDetails">
+    <button id="closeBruno" class="bruno-close" type="button" aria-label="Close contact details" autofocus>×</button>
+    <img class="bruno-photo" src="images/bruno-pons.jpg" alt="Photo of Bruno Pons">
+    <h2 id="brunoTitle">35 Autumn Ave — Bruno Pons</h2>
+    <p id="brunoDetails">0422906105 • bpons@tpg.com.au</p>
+    <div class="bruno-actions">
+      <a href="tel:0422906105" aria-label="Call Bruno">Call</a>
+      <a href="sms:0422906105" aria-label="Text Bruno">Text</a>
+      <a href="mailto:bpons@tpg.com.au" aria-label="Email Bruno">Email</a>
+      <button id="brunoMap" type="button">Map</button>
+    </div>
+  </dialog>
+  <dialog id="brunoMapDialog" aria-labelledby="brunoMapTitle">
+    <div class="dialog-heading"><h2 id="brunoMapTitle">35 Autumn Ave — Bruno Pons</h2><button id="closeBrunoMap" type="button" autofocus>Close map</button></div>
+    <p>Your destination is highlighted on the village map.</p>
+    <div class="bruno-actions"><button id="brunoMapHome" type="button">Show Bruno’s home</button><button id="brunoMapAll" type="button">Show whole village</button></div>
+    <svg id="brunoMapSvg" viewBox="0 0 1600 1600" role="img" aria-label="Natura village map highlighting Bruno Pons at house 35, Autumn Avenue">
+      <image href="images/natura-site-map.jpg" width="1600" height="1600"/>
+      <rect x="1294.5" y="1198" width="69.5" height="105" fill="#ffdf0066" stroke="#153b98" stroke-width="5"/>
+    </svg>
+  </dialog>
+
   <noscript>
     <p class="noscript">Please enable JavaScript to view the group directory.</p>
   </noscript>
 
   <script src="data/groups.js?v=26"></script>
-  <script src="app.js?v=26"></script>
+  <script src="app.js?v=36"></script>
 </body>
 </html>
 
