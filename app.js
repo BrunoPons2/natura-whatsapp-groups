@@ -111,6 +111,13 @@
   const contactLookups = new Map();
   const administratorsDialog = document.getElementById("administratorsDialog");
   document.getElementById("closeAdministrators").addEventListener("click", () => administratorsDialog.close());
+  administratorsDialog.addEventListener("click", event => {
+    if (event.target !== administratorsDialog) return;
+    const bounds = administratorsDialog.getBoundingClientRect();
+    if (event.clientX < bounds.left || event.clientX > bounds.right || event.clientY < bounds.top || event.clientY > bounds.bottom) {
+      administratorsDialog.close();
+    }
+  });
   function openAdministrators(group) {
     document.getElementById("administratorsGroup").textContent = group.name;
     const content = document.getElementById("administratorsContent");
