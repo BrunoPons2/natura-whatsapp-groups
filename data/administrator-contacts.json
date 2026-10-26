@@ -125,6 +125,20 @@
       "address": "66 Bloom St",
       "phone": "0407962710",
       "email": "joanneltgill@gmail.com"
+    },
+    {
+      "residentId": "134",
+      "name": "Phillip Shelton",
+      "address": "65 Bloom St",
+      "phone": "0412159167",
+      "email": "phillip.shelton1@icloud.com"
+    },
+    {
+      "residentId": "37",
+      "name": "Rod Harris",
+      "address": "19 Jubilee St",
+      "phone": "0478607957",
+      "email": "rharris54@hotmail.com"
     }
   ]
 }

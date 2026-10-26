@@ -1,6 +1,6 @@
 const CACHE_PREFIX = "natura-whatsapp-groups-";
-const CACHE_NAME = CACHE_PREFIX + "mobile-v36";
-const APP_FILES = ["./images/bruno-pons.jpg", "./images/natura-site-map.jpg", "./", "./index.html", "./styles.css?v=36", "./app.js?v=36", "./data/groups.js?v=26", "./data/administrator-contacts.json", "./manifest.webmanifest", "./icons/favicon.svg", "./icons/app-icon-192.png", "./icons/app-icon-512.png"];
+const CACHE_NAME = CACHE_PREFIX + "mobile-v37";
+const APP_FILES = ["./images/bruno-pons.jpg", "./images/natura-site-map.jpg", "./", "./index.html", "./styles.css?v=36", "./app.js?v=36", "./data/groups.js?v=37", "./data/administrator-contacts.json", "./manifest.webmanifest", "./icons/favicon.svg", "./icons/app-icon-192.png", "./icons/app-icon-512.png"];
 self.addEventListener("install", event => {
   event.waitUntil(caches.open(CACHE_NAME).then(cache => cache.addAll(APP_FILES)));
   self.skipWaiting();
