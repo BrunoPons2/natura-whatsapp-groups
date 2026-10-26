@@ -12,7 +12,7 @@
   <link rel="apple-touch-icon" href="icons/app-icon-192.png">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="icon" type="image/svg+xml" href="icons/favicon.svg">
-  <link rel="stylesheet" href="styles.css?v=36">
+  <link rel="stylesheet" href="styles.css?v=39">
 </head>
 <body>
   <header class="site-header">
@@ -163,9 +163,9 @@
   </dialog>
   <dialog id="brunoMapDialog" aria-labelledby="brunoMapTitle">
     <div class="dialog-heading"><h2 id="brunoMapTitle">35 Autumn Ave — Bruno Pons</h2><button id="closeBrunoMap" type="button" autofocus>Close map</button></div>
-    <p>Your destination is highlighted on the village map.</p>
-    <div class="bruno-actions"><button id="brunoMapHome" type="button">Show Bruno’s home</button><button id="brunoMapAll" type="button">Show whole village</button></div>
-    <svg id="brunoMapSvg" viewBox="0 0 1600 1600" role="img" aria-label="Natura village map highlighting Bruno Pons at house 35, Autumn Avenue">
+    <p>Your destination is highlighted. Drag to pan; scroll, pinch or use + and − to zoom.</p>
+    <div class="bruno-actions"><button id="mapZoomIn" type="button" aria-label="Zoom in">+</button><button id="mapZoomOut" type="button" aria-label="Zoom out">−</button><button id="brunoMapHome" type="button">Show Bruno’s home</button><button id="brunoMapAll" type="button">Show whole village</button></div>
+    <svg id="brunoMapSvg" tabindex="0" viewBox="0 0 1600 1600" role="img" aria-label="Natura village map highlighting Bruno Pons at house 35, Autumn Avenue">
       <image href="images/natura-site-map.jpg" width="1600" height="1600"/>
       <rect x="1294.5" y="1198" width="69.5" height="105" fill="#ffdf0066" stroke="#153b98" stroke-width="5"/>
     </svg>
@@ -176,7 +176,7 @@
   </noscript>
 
   <script src="data/groups.js?v=37"></script>
-  <script src="app.js?v=36"></script>
+  <script src="app.js?v=39"></script>
 </body>
 </html>
 

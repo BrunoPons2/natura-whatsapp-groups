@@ -4,19 +4,99 @@
   const brunoDialog = document.getElementById("brunoDialog");
   const brunoMapDialog = document.getElementById("brunoMapDialog");
   const brunoMapSvg = document.getElementById("brunoMapSvg");
-  const showBrunoHome = () => brunoMapSvg.setAttribute("viewBox", "1119.25 1040.5 420 420");
+  const mapHouses = [{"number":1,"x":378,"y":1250,"width":69,"height":105},{"number":2,"x":309,"y":1250,"width":69,"height":105},{"number":3,"x":240,"y":1250,"width":69,"height":105},{"number":4,"x":240,"y":1175,"width":105,"height":75},{"number":5,"x":240,"y":1105,"width":105,"height":70},{"number":6,"x":240,"y":1040,"width":105,"height":65},{"number":7,"x":240,"y":970,"width":105,"height":70},{"number":8,"x":240,"y":905,"width":105,"height":65},{"number":9,"x":240,"y":830,"width":105,"height":75},{"number":10,"x":240,"y":755,"width":105,"height":75},{"number":11,"x":240,"y":680,"width":105,"height":75},{"number":12,"x":345,"y":450,"width":105,"height":82},{"number":13,"x":345,"y":532,"width":105,"height":75},{"number":14,"x":345,"y":607,"width":105,"height":73},{"number":15,"x":345,"y":680,"width":105,"height":75},{"number":16,"x":345,"y":755,"width":105,"height":75},{"number":17,"x":345,"y":830,"width":105,"height":75},{"number":18,"x":345,"y":905,"width":105,"height":65},{"number":19,"x":345,"y":970,"width":105,"height":70},{"number":20,"x":345,"y":1040,"width":105,"height":65},{"number":21,"x":345,"y":1105,"width":105,"height":70},{"number":22,"x":345,"y":1175,"width":105,"height":75},{"number":23,"x":530,"y":1303,"width":69.5,"height":105},{"number":24,"x":599.5,"y":1303,"width":69.5,"height":105},{"number":25,"x":669,"y":1303,"width":69.5,"height":105},{"number":26,"x":738.5,"y":1303,"width":69.5,"height":105},{"number":27,"x":808,"y":1303,"width":69.5,"height":105},{"number":28,"x":877.5,"y":1303,"width":69.5,"height":105},{"number":29,"x":947,"y":1303,"width":69.5,"height":105},{"number":30,"x":1016.5,"y":1303,"width":69.5,"height":105},{"number":31,"x":1086,"y":1303,"width":69.5,"height":105},{"number":32,"x":1155.5,"y":1303,"width":69.5,"height":105},{"number":33,"x":1225,"y":1303,"width":69.5,"height":105},{"number":34,"x":1294.5,"y":1303,"width":69.5,"height":105},{"number":35,"x":1294.5,"y":1198,"width":69.5,"height":105},{"number":36,"x":1225,"y":1198,"width":69.5,"height":105},{"number":37,"x":1155.5,"y":1198,"width":69.5,"height":105},{"number":38,"x":1086,"y":1198,"width":69.5,"height":105},{"number":39,"x":1016.5,"y":1198,"width":69.5,"height":105},{"number":40,"x":947,"y":1198,"width":69.5,"height":105},{"number":41,"x":877.5,"y":1198,"width":69.5,"height":105},{"number":42,"x":808,"y":1198,"width":69.5,"height":105},{"number":43,"x":738.5,"y":1198,"width":69.5,"height":105},{"number":44,"x":669,"y":1198,"width":69.5,"height":105},{"number":45,"x":599.5,"y":1198,"width":69.5,"height":105},{"number":46,"x":530,"y":1198,"width":69.5,"height":105},{"number":47,"x":515,"y":1046,"width":77,"height":105},{"number":48,"x":592,"y":1046,"width":77,"height":105},{"number":49,"x":669,"y":1046,"width":77,"height":105},{"number":50,"x":746,"y":1046,"width":77,"height":105},{"number":51,"x":823,"y":1046,"width":77,"height":105},{"number":52,"x":900,"y":1046,"width":77,"height":105},{"number":53,"x":977,"y":1046,"width":77,"height":105},{"number":54,"x":1054,"y":1046,"width":77,"height":105},{"number":55,"x":1131,"y":1046,"width":77,"height":105},{"number":56,"x":1208,"y":1046,"width":77,"height":105},{"number":57,"x":1285,"y":1046,"width":77,"height":105},{"number":58,"x":1292.7,"y":951,"width":70.7,"height":95},{"number":59,"x":1222,"y":951,"width":70.7,"height":95},{"number":60,"x":1151.3000000000002,"y":951,"width":70.7,"height":95},{"number":61,"x":1080.6,"y":951,"width":70.7,"height":95},{"number":62,"x":1009.9000000000001,"y":951,"width":70.7,"height":95},{"number":63,"x":939.2,"y":951,"width":70.7,"height":95},{"number":64,"x":868.5,"y":951,"width":70.7,"height":95},{"number":65,"x":797.8,"y":951,"width":70.7,"height":95},{"number":66,"x":727.1,"y":951,"width":70.7,"height":95},{"number":67,"x":656.4,"y":951,"width":70.7,"height":95},{"number":68,"x":585.7,"y":951,"width":70.7,"height":95},{"number":69,"x":515,"y":951,"width":70.7,"height":95},{"number":70,"x":515,"y":796,"width":70.7,"height":103},{"number":71,"x":585.7,"y":796,"width":70.7,"height":103},{"number":72,"x":656.4,"y":796,"width":70.7,"height":103},{"number":73,"x":727.1,"y":796,"width":70.7,"height":103},{"number":74,"x":797.8,"y":796,"width":70.7,"height":103},{"number":75,"x":868.5,"y":796,"width":70.7,"height":103},{"number":76,"x":939.2,"y":796,"width":70.7,"height":103},{"number":77,"x":1009.9000000000001,"y":796,"width":70.7,"height":103},{"number":78,"x":1080.6,"y":796,"width":70.7,"height":103},{"number":79,"x":1151.3000000000002,"y":796,"width":70.7,"height":103},{"number":80,"x":1222,"y":796,"width":70.7,"height":103},{"number":81,"x":1292.7,"y":796,"width":70.7,"height":103},{"number":82,"x":1285,"y":690,"width":77,"height":106},{"number":83,"x":1208,"y":690,"width":77,"height":106},{"number":84,"x":1131,"y":690,"width":77,"height":106},{"number":85,"x":1054,"y":690,"width":77,"height":106},{"number":86,"x":977,"y":690,"width":77,"height":106},{"number":87,"x":900,"y":690,"width":77,"height":106},{"number":88,"x":823,"y":690,"width":77,"height":106},{"number":89,"x":746,"y":690,"width":77,"height":106},{"number":90,"x":669,"y":690,"width":77,"height":106},{"number":91,"x":592,"y":690,"width":77,"height":106},{"number":92,"x":515,"y":690,"width":77,"height":106},{"number":93,"x":1105,"y":535,"width":76,"height":104},{"number":94,"x":1181,"y":535,"width":77,"height":104},{"number":95,"x":1258,"y":568,"width":104,"height":71},{"number":96,"x":1258,"y":515,"width":104,"height":53},{"number":97,"x":1258,"y":430,"width":104,"height":85},{"number":98,"x":1181,"y":430,"width":77,"height":105},{"number":99,"x":1105,"y":430,"width":76,"height":105},{"number":100,"x":980,"y":535,"width":75,"height":103},{"number":101,"x":928,"y":535,"width":52,"height":103},{"number":102,"x":842,"y":535,"width":86,"height":103},{"number":103,"x":842,"y":463,"width":107,"height":72},{"number":104,"x":842,"y":410,"width":107,"height":53},{"number":105,"x":842,"y":338,"width":107,"height":72},{"number":106,"x":842,"y":234,"width":77,"height":104},{"number":107,"x":919,"y":234,"width":61,"height":104},{"number":108,"x":980,"y":234,"width":75,"height":104},{"number":109,"x":949,"y":338,"width":106,"height":72},{"number":110,"x":949,"y":410,"width":106,"height":53},{"number":111,"x":949,"y":463,"width":106,"height":72}];
+  let mappedHouse = mapHouses.find(house => house.number === 35);
+  function showMappedHome() {
+    if (!mappedHouse) return;
+    mapView = {x: mappedHouse.x + mappedHouse.width / 2 - 210, y: mappedHouse.y + mappedHouse.height / 2 - 210, size: 420};
+    drawMap();
+  }
+  function houseForResident(resident) {
+    const match = String(resident.address || "").match(/^\s*(\d+)\b/);
+    return match ? mapHouses.find(house => house.number === Number(match[1])) : null;
+  }
+  function openResidentMap(resident) {
+    mappedHouse = houseForResident(resident);
+    if (!mappedHouse) return;
+    document.getElementById("brunoMapTitle").textContent = resident.address + " — " + resident.name;
+    document.getElementById("brunoMapHome").textContent = "Show home";
+    brunoMapSvg.setAttribute("aria-label", "Natura village map highlighting " + resident.name + " at " + resident.address);
+    const highlight = brunoMapSvg.querySelector("rect");
+    for (const key of ["x", "y", "width", "height"]) highlight.setAttribute(key, mappedHouse[key]);
+    showMappedHome();
+    brunoMapDialog.showModal();
+  }
   document.getElementById("contactBruno").addEventListener("click", () => brunoDialog.showModal());
   document.getElementById("closeBruno").addEventListener("click", () => brunoDialog.close());
-  document.getElementById("brunoMap").addEventListener("click", () => { showBrunoHome(); brunoMapDialog.showModal(); });
+  document.getElementById("brunoMap").addEventListener("click", () => openResidentMap({name: "Bruno Pons", address: "35 Autumn Ave"}));
   document.getElementById("closeBrunoMap").addEventListener("click", () => brunoMapDialog.close());
-  document.getElementById("brunoMapHome").addEventListener("click", showBrunoHome);
-  document.getElementById("brunoMapAll").addEventListener("click", () => brunoMapSvg.setAttribute("viewBox", "0 0 1600 1600"));
+  document.getElementById("brunoMapHome").addEventListener("click", showMappedHome);
+  document.getElementById("brunoMapAll").addEventListener("click", () => { mapView = {x:0, y:0, size:1600}; drawMap(); });
   [brunoDialog, brunoMapDialog].forEach(dialog => {
     dialog.addEventListener("click", event => {
       if (event.target !== dialog) return;
       const rect = dialog.getBoundingClientRect();
       if (event.clientX < rect.left || event.clientX > rect.right || event.clientY < rect.top || event.clientY > rect.bottom) dialog.close();
     });
+  });
+
+  let mapView = {x:0, y:0, size:1600};
+  const mapPointers = new Map();
+  let mapGesture = null;
+  function drawMap() {
+    mapView.x = Math.max(-100, Math.min(1700-mapView.size, mapView.x));
+    mapView.y = Math.max(-100, Math.min(1700-mapView.size, mapView.y));
+    brunoMapSvg.setAttribute("viewBox", [mapView.x, mapView.y, mapView.size, mapView.size].join(" "));
+  }
+  function zoomMap(factor, anchor = {x:mapView.x+mapView.size/2, y:mapView.y+mapView.size/2}) {
+    const size = Math.max(260, Math.min(1600, mapView.size*factor));
+    const ratio = size/mapView.size;
+    mapView = {x:anchor.x-(anchor.x-mapView.x)*ratio, y:anchor.y-(anchor.y-mapView.y)*ratio, size};
+    drawMap();
+  }
+  document.getElementById("mapZoomIn").addEventListener("click", () => zoomMap(.75));
+  document.getElementById("mapZoomOut").addEventListener("click", () => zoomMap(1.333333));
+  brunoMapSvg.addEventListener("wheel", event => {
+    const matrix = brunoMapSvg.getScreenCTM();
+    if (!matrix || mapPointers.size || !event.deltaY) return;
+    event.preventDefault();
+    const anchor = new DOMPoint(event.clientX,event.clientY).matrixTransform(matrix.inverse());
+    const unit = event.deltaMode===1 ? 16 : event.deltaMode===2 ? brunoMapSvg.clientHeight : 1;
+    zoomMap(Math.exp(Math.max(-.2, Math.min(.2,event.deltaY*unit*.0007))), anchor);
+  }, {passive:false});
+  function pointerMetric() {
+    const p = [...mapPointers.values()];
+    return p.length>1 ? {x:(p[0].x+p[1].x)/2,y:(p[0].y+p[1].y)/2,d:Math.hypot(p[0].x-p[1].x,p[0].y-p[1].y)} : {...p[0],d:0};
+  }
+  function resetGesture() { mapGesture = mapPointers.size ? {...pointerMetric(),view:{...mapView}} : null; }
+  brunoMapSvg.addEventListener("pointerdown", event => {
+    if(event.pointerType==="mouse" && event.button!==0)return;
+    mapPointers.set(event.pointerId,{x:event.clientX,y:event.clientY});
+    brunoMapSvg.setPointerCapture(event.pointerId);
+    resetGesture();
+  });
+  brunoMapSvg.addEventListener("pointermove", event => {
+    if(!mapPointers.has(event.pointerId)||!mapGesture)return;
+    mapPointers.set(event.pointerId,{x:event.clientX,y:event.clientY});
+    const m=pointerMetric(), g=mapGesture;
+    const scale=Math.min(brunoMapSvg.clientWidth,brunoMapSvg.clientHeight);
+    const size=g.d && m.d ? Math.max(260,Math.min(1600,g.view.size*g.d/m.d)) : g.view.size;
+    mapView={size,x:g.view.x-(m.x-g.x)*g.view.size/scale+(g.view.size-size)/2,y:g.view.y-(m.y-g.y)*g.view.size/scale+(g.view.size-size)/2};
+    drawMap();
+  });
+  function endMapPointer(event) { mapPointers.delete(event.pointerId); resetGesture(); }
+  for (const type of ["pointerup","pointercancel","lostpointercapture"]) brunoMapSvg.addEventListener(type,endMapPointer);
+  brunoMapDialog.addEventListener("close", () => {mapPointers.clear(); mapGesture=null;});
+  brunoMapSvg.addEventListener("keydown", event => {
+    const step=mapView.size*.12;
+    if(event.key==="ArrowLeft")mapView.x-=step;
+    else if(event.key==="ArrowRight")mapView.x+=step;
+    else if(event.key==="ArrowUp")mapView.y-=step;
+    else if(event.key==="ArrowDown")mapView.y+=step;
+    else if(event.key==="+"||event.key==="=")zoomMap(.75);
+    else if(event.key==="-")zoomMap(1.333333);
+    else return;
+    event.preventDefault(); drawMap();
   });
 
   const groups = Array.isArray(window.NATURA_GROUPS) ? window.NATURA_GROUPS : [];
@@ -159,6 +239,15 @@
           addContactButton(actions, "Call", phone ? `tel:${phone}` : "", resident.name, "Phone not recorded");
           addContactButton(actions, "Text", phone ? `sms:${phone}` : "", resident.name, "Phone not recorded");
           addContactButton(actions, "Email", resident.email ? `mailto:${resident.email}` : "", resident.name, "Email not recorded");
+          const mapButton = document.createElement("button");
+          mapButton.type = "button";
+          mapButton.className = "contact-action";
+          mapButton.textContent = "Map";
+          mapButton.setAttribute("aria-label", "Map for " + resident.name);
+          mapButton.disabled = !houseForResident(resident);
+          if (mapButton.disabled) mapButton.title = "Home location not available";
+          mapButton.addEventListener("click", () => openResidentMap(resident));
+          actions.appendChild(mapButton);
           section.appendChild(actions);
         } else {
           const missing = document.createElement("span");
