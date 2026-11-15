@@ -220,6 +220,7 @@
     try {
       const ids = admins.map((admin) => admin.residentId).filter(Boolean);
       let residents = [];
+      let residentLookupFailed = false;
       if (ids.length) {
         const key = ids.join(",");
         if (!contactLookups.has(key)) {
@@ -228,37 +229,46 @@
             .then((data) => data.residents)
             .catch((error) => { contactLookups.delete(key); throw error; }));
         }
-        residents = await contactLookups.get(key);
+        residents = await contactLookups.get(key).catch(() => { residentLookupFailed = true; return []; });
       }
       adminList.replaceChildren();
       admins.forEach((admin) => {
-        const resident = residents.find((item) => item.residentId === String(admin.residentId));
+        const visitor = admin.visitorId
+          ? (window.NATURA_VISITORS || []).find((item) => item.visitorId === admin.visitorId && item.publicationPermission === "Confirmed")
+          : null;
+        const resident = !admin.visitorId && residents.find((item) => item.residentId === String(admin.residentId));
+        const contact = visitor || resident;
         const section = document.createElement("li");
         section.className = "resident-contact";
         const heading = document.createElement("strong");
-        heading.textContent = resident ? resident.name : administratorName(admin);
+        heading.textContent = contact ? contact.name : administratorName(admin);
         section.appendChild(heading);
-        if (resident) {
-          section.append(` - ${resident.address || "Address not recorded"}`);
+        if (contact) {
+          section.append(` - ${visitor ? visitor.role || "External administrator" : resident.address || "Address not recorded"}`);
           const actions = document.createElement("div");
           actions.className = "contact-actions";
-          const phone = String(resident.phone || "").replace(/[^+\d]/g, "");
-          addContactButton(actions, "Call", phone ? `tel:${phone}` : "", resident.name, "Phone not recorded");
-          addContactButton(actions, "Text", phone ? `sms:${phone}` : "", resident.name, "Phone not recorded");
-          addContactButton(actions, "Email", resident.email ? `mailto:${resident.email}` : "", resident.name, "Email not recorded");
-          const mapButton = document.createElement("button");
-          mapButton.type = "button";
-          mapButton.className = "contact-action";
-          mapButton.textContent = "Map";
-          mapButton.setAttribute("aria-label", "Map for " + resident.name);
-          mapButton.disabled = !houseForResident(resident);
-          if (mapButton.disabled) mapButton.title = "Home location not available";
-          mapButton.addEventListener("click", () => openResidentMap(resident));
-          actions.appendChild(mapButton);
+          const phone = String(contact.phone || "").replace(/[^+\d]/g, "");
+          addContactButton(actions, "Call", phone ? `tel:${phone}` : "", contact.name, "Phone not recorded");
+          addContactButton(actions, "Text", phone ? `sms:${phone}` : "", contact.name, "Phone not recorded");
+          addContactButton(actions, "Email", contact.email ? `mailto:${contact.email}` : "", contact.name, "Email not recorded");
+          if (resident) {
+            const mapButton = document.createElement("button");
+            mapButton.type = "button";
+            mapButton.className = "contact-action";
+            mapButton.textContent = "Map";
+            mapButton.setAttribute("aria-label", "Map for " + resident.name);
+            mapButton.disabled = !houseForResident(resident);
+            if (mapButton.disabled) mapButton.title = "Home location not available";
+            mapButton.addEventListener("click", () => openResidentMap(resident));
+            actions.appendChild(mapButton);
+          }
           section.appendChild(actions);
         } else {
           const missing = document.createElement("span");
-          missing.textContent = " - Contact details not yet available from the Residents Directory.";
+          missing.textContent = admin.visitorId
+            ? " - Contact details not yet available from the Visitors Contact Register."
+            : residentLookupFailed ? " - Contact details unavailable. Reconnect and try again."
+            : " - Contact details not yet available from the Residents Directory.";
           section.appendChild(missing);
         }
         adminList.appendChild(section);
@@ -392,7 +402,7 @@
 
   function getAdministrators(group) {
     const names = Array.isArray(group.administrators) ? group.administrators : [group.contact];
-    return names.filter((admin) => (typeof admin === "string" && admin.trim()) || (admin && typeof admin === "object" && admin.residentId));
+    return names.filter((admin) => (typeof admin === "string" && admin.trim()) || (admin && typeof admin === "object" && (admin.residentId || admin.visitorId)));
   }
 
   searchInput.addEventListener("input", render);
